@@ -55,4 +55,108 @@
             border: 2px solid var(--gold);
             backdrop-filter: blur(10px);
             box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
-            margin: 20px 0
+            margin: 20px 0;
+        }
+
+        .countdown-label {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .timer {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .time-box span:first-child {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .time-box span:last-child {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
+        .cta-button {
+            margin-top: 40px;
+            background: var(--gold);
+            color: black;
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="sub-text">Bergen 18.–20. September 2026</div>
+    <h1>Magiske Timer</h1>
+    
+    <div id="countdown-container">
+        <span class="countdown-label">VI SLIPPER NYHETER OM:</span>
+        <div class="timer">
+            <div class="time-box"><span id="days">00</span><span>Dager</span></div>
+            <div class="time-box"><span id="hours">00</span><span>Timer</span></div>
+            <div class="time-box"><span id="minutes">00</span><span>Min</span></div>
+            <div class="time-box"><span id="seconds">00</span><span>Sek</span></div>
+        </div>
+    </div>
+
+    <p>Gjør deg klar for den største tryllebegivenheten i Bergen noensinne.</p>
+    <a href="https://magisketimer.no" class="cta-button">Offisiell Nettside</a>
+</header>
+
+<script>
+    // Sett datoen vi teller ned til
+    const countDownDate = new Date("Mar 5, 2026 12:00:00").getTime();
+
+    // Oppdater nedtellingen hvert sekund
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+
+        // Beregn dager, timer, minutter og sekunder
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Vis resultatet i elementene
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+        // Hvis nedtellingen er over
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER HER! ✨</h2>";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
