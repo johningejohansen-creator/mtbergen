@@ -11,25 +11,29 @@
             --dark: #0f172a;
             --light: #f8fafc;
         }
+        
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--dark);
             color: var(--light);
-            text-align: center;
+            line-height: 1.6;
         }
 
-        /* Hero Seksjon */
+        /* HEADER / HERO */
         header {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), 
+                        url('header-bilde.jpg'); /* Erstatt med ditt filnavn */
             background-size: cover;
             background-position: center;
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
         }
 
         h1 {
@@ -47,7 +51,7 @@
             opacity: 0.9;
         }
 
-        /* NEDTELLING FOKUS */
+        /* NEDTELLING */
         #countdown-container {
             background: rgba(255, 255, 255, 0.05);
             padding: 40px;
@@ -55,15 +59,8 @@
             border: 2px solid var(--gold);
             backdrop-filter: blur(10px);
             box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
-            margin: 20px 0;
-        }
-
-        .countdown-label {
-            color: var(--gold);
-            font-weight: bold;
-            margin-bottom: 15px;
-            display: block;
-            font-size: 1.1rem;
+            margin: 40px 0;
+            max-width: 600px;
         }
 
         .timer {
@@ -78,7 +75,7 @@
         }
 
         .time-box span:first-child {
-            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-size: clamp(2rem, 8vw, 4rem);
             font-weight: 700;
             font-family: 'Playfair Display', serif;
             line-height: 1;
@@ -91,21 +88,66 @@
             margin-top: 5px;
         }
 
-        .cta-button {
-            margin-top: 40px;
-            background: var(--gold);
-            color: black;
-            padding: 18px 40px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: 0.3s;
-            display: inline-block;
+        /* INNHOLDS-SEKSJONER */
+        .content-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 100px;
+            text-align: left;
+        }
+
+        .info-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .image-box {
+            flex: 1;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            display: block;
+        }
+
+        .text-box {
+            flex: 1;
+        }
+
+        .text-box h2 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+
+        footer {
+            padding: 60px;
+            background: #020617;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* MOBIL-TILPASNING */
+        @media (max-width: 768px) {
+            .info-row, .info-row.reverse {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+            .text-box h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -116,7 +158,7 @@
     <h1>Magiske Timer</h1>
     
     <div id="countdown-container">
-        <span class="countdown-label">VI SLIPPER NYHETER OM:</span>
+        <span style="color: var(--gold); font-weight: bold; display: block; margin-bottom: 15px;">NYHETER SLIPPES OM:</span>
         <div class="timer">
             <div class="time-box"><span id="days">00</span><span>Dager</span></div>
             <div class="time-box"><span id="hours">00</span><span>Timer</span></div>
@@ -125,35 +167,57 @@
         </div>
     </div>
 
-    <p>Gjør deg klar for den største tryllebegivenheten i Bergen noensinne.</p>
-
+    <p style="max-width: 600px;">Bli med når norgestoppen i trylling inntar vestlandets hovedstad for en magisk helg du sent vil glemme.</p>
 </header>
 
+<main class="content-wrapper">
+
+    <section class="info-row">
+        <div class="image-box">
+            <img src="bergen-scene.jpg" alt="Scene i Bergen">
+        </div>
+        <div class="text-box">
+            <h2>Magi mellom de syv fjell</h2>
+            <p>I 2026 flytter vi hele kongressen til hjertet av Bergen. Med nærhet til både fjord og fjell, skal vi skape en atmosfære som inspirerer både amatører og profesjonelle tryllekunstnere.</p>
+        </div>
+    </section>
+
+    <section class="info-row reverse">
+        <div class="image-box">
+            <img src="nm-trylling.jpg" alt="NM i Trylling">
+        </div>
+        <div class="text-box">
+            <h2>Nordisk Mesterskap</h2>
+            <p>Gjør deg klar for beinhard konkurranse! Det skal kjempes om titler i både scene- og close-up trylling. Våre dommere er internasjonale eksperter som sikrer et skyhøyt nivå.</p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>Magiske Cirkel Norge &copy; 2026</p>
+</footer>
+
 <script>
-    // Sett datoen vi teller ned til
     const countDownDate = new Date("Mar 5, 2026 12:00:00").getTime();
 
-    // Oppdater nedtellingen hvert sekund
     const x = setInterval(function() {
         const now = new Date().getTime();
         const distance = countDownDate - now;
 
-        // Beregn dager, timer, minutter og sekunder
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Vis resultatet i elementene
         document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
         document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
         document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
         document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
 
-        // Hvis nedtellingen er over
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER HER! ✨</h2>";
+            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER SLUPPET! ✨</h2>";
         }
     }, 1000);
 </script>
