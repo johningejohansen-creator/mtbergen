@@ -3,161 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magiske Timer 2026 | NM i Trylling</title>
+    <title>Magiske Timer 2026 | Bergen</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #d4af37;
-            --dark: #121212;
-            --light: #f4f4f4;
+            --dark: #0f172a;
+            --light: #f8fafc;
         }
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             background-color: var(--dark);
             color: var(--light);
-            line-height: 1.6;
+            text-align: center;
         }
+
+        /* Hero Seksjon */
         header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            border-bottom: 4px solid var(--gold);
+            padding: 20px;
         }
+
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 10px;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin: 0;
             color: var(--gold);
         }
-        .date-badge {
-            background: var(--gold);
-            color: black;
-            padding: 5px 20px;
-            font-weight: bold;
-            border-radius: 50px;
+
+        .sub-text {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+
+        /* NEDTELLING FOKUS */
+        #countdown-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--gold);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+            margin: 20px 0;
         }
-        section {
-            margin-bottom: 60px;
+
+        .countdown-label {
+            color: var(--gold);
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: block;
+            font-size: 1.1rem;
         }
-        h2 {
-            border-left: 5px solid var(--gold);
-            padding-left: 15px;
-            font-family: 'Playfair Display', serif;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .card {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #333;
-        }
-        .card h3 { color: var(--gold); margin-top: 0; }
-        .program-item {
+
+        .timer {
             display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #333;
-            padding: 10px 0;
+            gap: 20px;
+            justify-content: center;
         }
-        .time { color: var(--gold); font-weight: bold; min-width: 100px; }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .time-box span:first-child {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+
+        .time-box span:last-child {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
         .cta-button {
-            display: inline-block;
+            margin-top: 40px;
             background: var(--gold);
             color: black;
-            padding: 15px 30px;
+            padding: 18px 40px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 5px;
-            margin-top: 20px;
+            border-radius: 8px;
             transition: 0.3s;
+            display: inline-block;
         }
+
         .cta-button:hover {
             transform: scale(1.05);
-            background: #f1c40f;
-        }
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #0a0a0a;
-            font-size: 0.9rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="date-badge">18.–20. september 2026</div>
+    <div class="sub-text">Bergen 18.–20. September 2026</div>
     <h1>Magiske Timer</h1>
-    <p>Nordisk Mesterskap og Tryllekongress i Fredrikstad</p>
-    <a href="#pamelding" class="cta-button">Meld deg på nå</a>
+    
+    <div id="countdown-container">
+        <span class="countdown-label">VI SLIPPER NYHETER OM:</span>
+        <div class="timer">
+            <div class="time-box"><span id="days">00</span><span>Dager</span></div>
+            <div class="time-box"><span id="hours">00</span><span>Timer</span></div>
+            <div class="time-box"><span id="minutes">00</span><span>Min</span></div>
+            <div class="time-box"><span id="seconds">00</span><span>Sek</span></div>
+        </div>
+    </div>
+
+    <p>Gjør deg klar for den største tryllebegivenheten i Bergen noensinne.</p>
+    <a href="https://magisketimer.no" class="cta-button">Offisiell Nettside</a>
 </header>
 
-<div class="container">
-    <section id="om">
-        <h2>Velkommen til 2026-utgaven</h2>
-        <p>Magiske Timer er Norges største møteplass for tryllekunstnere. I 2026 samles vi igjen i Fredrikstad for en helg fylt med NM i trylling, internasjonale seminarer, dealershow og spektakulære gallashow på City Scene.</p>
-    </section>
+<script>
+    // Sett datoen vi teller ned til
+    const countDownDate = new Date("Mar 5, 2026 12:00:00").getTime();
 
-    <section id="highlights">
-        <div class="grid">
-            <div class="card">
-                <h3>NM i Trylling</h3>
-                <p>Konkurranser i Close-up, Scene og Barnetrylling for både junior og senior.</p>
-            </div>
-            <div class="card">
-                <h3>Internasjonale Artister</h3>
-                <p>Opplev seminarer og show med noen av verdens fremste magikere.</p>
-            </div>
-            <div class="card">
-                <h3>Dealerne</h3>
-                <p>Kjøp det nyeste utstyret fra ledende forhandlere som Pegani og Magic Props.</p>
-            </div>
-        </div>
-    </section>
+    // Oppdater nedtellingen hvert sekund
+    const x = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
 
-    <section id="program">
-        <h2>Programoversikt (Lørdag 19. sept)</h2>
-        <div class="program-item">
-            <span class="time">10:00 - 11:30</span>
-            <span>Internasjonalt Seminar (Hovedsal)</span>
-        </div>
-        <div class="program-item">
-            <span class="time">12:00 - 14:00</span>
-            <span>NM i Close-up Trylling</span>
-        </div>
-        <div class="program-item">
-            <span class="time">19:00 - 22:00</span>
-            <span>Magisk Galla & Dinnershow</span>
-        </div>
-        <p><i>Fullstendig program publiseres våren 2026.</i></p>
-    </section>
+        // Beregn dager, timer, minutter og sekunder
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    <section id="hotell">
-        <h2>Overnatting</h2>
-        <p>Vi bor som vanlig på <strong>Scandic City Fredrikstad</strong>. Bruk referansekode "Magiske Timer 2026" for kongresspriser på rom.</p>
-    </section>
-</div>
+        // Vis resultatet i elementene
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
 
-<footer>
-    <p>Arrangeres av Magiske Cirkel Norge</p>
-    <p>&copy; 2026 Magiske Timer. Alle rettigheter reservert.</p>
-</footer>
+        // Hvis nedtellingen er over
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown-container").innerHTML = "<h2>NYHETENE ER HER! ✨</h2>";
+        }
+    }, 1000);
+</script>
 
 </body>
 </html>
