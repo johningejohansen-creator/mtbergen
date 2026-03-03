@@ -3,23 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Gratis Nettside</title>
+    <title>Magiske Timer 2026 | NM i Trylling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; margin: 0; display: flex; align-items: center; 
-               justify-content: center; height: 100vh; background: #f0f2f5; }
-        .card { background: white; padding: 2rem; border-radius: 15px; 
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: #333; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; 
-                 border-radius: 5px; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #0056b3; }
+        :root {
+            --gold: #d4af37;
+            --dark: #121212;
+            --light: #f4f4f4;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 4px solid var(--gold);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        .date-badge {
+            background: var(--gold);
+            color: black;
+            padding: 5px 20px;
+            font-weight: bold;
+            border-radius: 50px;
+            text-transform: uppercase;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        section {
+            margin-bottom: 60px;
+        }
+        h2 {
+            border-left: 5px solid var(--gold);
+            padding-left: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        .card h3 { color: var(--gold); margin-top: 0; }
+        .program-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding: 10px 0;
+        }
+        .time { color: var(--gold); font-weight: bold; min-width: 100px; }
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: black;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+            background: #f1c40f;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #0a0a0a;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Velkommen til min nye side! 🚀</h1>
-        <p>Denne siden er laget med hjelp fra Gemini og hostet helt gratis.</p>
-        <button onclick="alert('Virker!')">Trykk på meg</button>
-    </div>
+
+<header>
+    <div class="date-badge">18.–20. september 2026</div>
+    <h1>Magiske Timer</h1>
+    <p>Nordisk Mesterskap og Tryllekongress i Fredrikstad</p>
+    <a href="#pamelding" class="cta-button">Meld deg på nå</a>
+</header>
+
+<div class="container">
+    <section id="om">
+        <h2>Velkommen til 2026-utgaven</h2>
+        <p>Magiske Timer er Norges største møteplass for tryllekunstnere. I 2026 samles vi igjen i Fredrikstad for en helg fylt med NM i trylling, internasjonale seminarer, dealershow og spektakulære gallashow på City Scene.</p>
+    </section>
+
+    <section id="highlights">
+        <div class="grid">
+            <div class="card">
+                <h3>NM i Trylling</h3>
+                <p>Konkurranser i Close-up, Scene og Barnetrylling for både junior og senior.</p>
+            </div>
+            <div class="card">
+                <h3>Internasjonale Artister</h3>
+                <p>Opplev seminarer og show med noen av verdens fremste magikere.</p>
+            </div>
+            <div class="card">
+                <h3>Dealerne</h3>
+                <p>Kjøp det nyeste utstyret fra ledende forhandlere som Pegani og Magic Props.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="program">
+        <h2>Programoversikt (Lørdag 19. sept)</h2>
+        <div class="program-item">
+            <span class="time">10:00 - 11:30</span>
+            <span>Internasjonalt Seminar (Hovedsal)</span>
+        </div>
+        <div class="program-item">
+            <span class="time">12:00 - 14:00</span>
+            <span>NM i Close-up Trylling</span>
+        </div>
+        <div class="program-item">
+            <span class="time">19:00 - 22:00</span>
+            <span>Magisk Galla & Dinnershow</span>
+        </div>
+        <p><i>Fullstendig program publiseres våren 2026.</i></p>
+    </section>
+
+    <section id="hotell">
+        <h2>Overnatting</h2>
+        <p>Vi bor som vanlig på <strong>Scandic City Fredrikstad</strong>. Bruk referansekode "Magiske Timer 2026" for kongresspriser på rom.</p>
+    </section>
+</div>
+
+<footer>
+    <p>Arrangeres av Magiske Cirkel Norge</p>
+    <p>&copy; 2026 Magiske Timer. Alle rettigheter reservert.</p>
+</footer>
+
 </body>
 </html>
